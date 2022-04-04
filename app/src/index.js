@@ -37,13 +37,11 @@ const App = {
 	},
 
 	createTodo: async function () {
+
+    // interact with the contract to create a todo
 		const content = document.getElementById("content").value;
 
 		this.setStatus("Initiating transaction... (please wait)");
-
-		const { createTodo } = this.meta.methods;
-		const res = await createTodo(content).send({ from: this.account });
-		console.log(res);
 
 		this.setStatus("Transaction complete!");
 		this.refreshBalance();
@@ -55,10 +53,7 @@ const App = {
 	},
 
 	setListeners: function () {
-		console.log(this.meta);
-		this.meta.events.TodoCreated().on("data", (event) => {
-			console.log("data", event);
-		});
+    // add listeners to the contract
 	},
 };
 
