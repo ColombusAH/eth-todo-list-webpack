@@ -48,6 +48,7 @@ const App = {
 		this.setStatus("Transaction complete!");
 		this.refreshBalance();
 	},
+	markAsDone: async function () {},
 
 	setStatus: function (message) {
 		const status = document.getElementById("status");
